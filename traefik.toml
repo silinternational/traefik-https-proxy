@@ -1,0 +1,82 @@
+################################################################
+# Global configuration
+################################################################
+
+# Enable debug mode
+#
+# Optional
+# Default: false
+#
+debug = true
+
+# Log level
+#
+# Optional
+# Default: "ERROR"
+#
+logLevel = "DEBUG"
+
+# Entrypoints to be used by frontends that do not specify any entrypoint.
+defaultEntryPoints = ["http", "https"]
+
+# Entrypoints definition
+[entryPoints]
+    [entryPoints.http]
+    address = ":80"
+        [entryPoints.http.redirect]
+        entryPoint = "https"
+    [entryPoints.https]
+    address = ":443"
+        [entryPoints.https.tls]
+
+[acme]
+email = "LETS_ENCRYPT_EMAIL"
+storage = "/cert/acme.json"
+entryPoint = "https"
+    [acme.dnsChallenge]
+    provider = "DNS_PROVIDER"
+    delayBeforeCheck = 60
+caServer = "LETS_ENCRYPT_CA"
+acmeLogging = true
+
+    
+
+[[acme.domains]]
+main = "TLD"
+sans = [SANS]
+
+################################################################
+# File configuration backend
+################################################################
+[file]
+
+[backends]
+
+    [backends.backend1]
+        [backends.backend1.servers]
+        [backends.backend1.servers.server0]
+            url = "BACKEND1_URL"
+            weight = 1
+    
+    [backends.backend2]
+        [backends.backend2.servers]
+        [backends.backend2.servers.server0]
+            url = "BACKEND2_URL"
+            weight = 1
+
+[frontends]
+
+  [frontends.frontend1]
+    entryPoints = ["http", "https"]
+    backend = "backend1"
+    passHostHeader = true
+    [frontends.frontend1.routes.default]
+    rule = "Host: FRONTEND1_DOMAIN"
+
+  [frontends.frontend2]
+    entryPoints = ["http", "https"]
+    backend = "backend2"
+    passHostHeader = true
+    [frontends.frontend2.routes.default]
+    rule = "Host: FRONTEND2_DOMAIN"
+
