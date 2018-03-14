@@ -1,11 +1,10 @@
 test:
   build:
     context: ./
-    dockerfile: Dockefile-tests
+    dockerfile: Dockerfile-tests
 
 proxy:
   build:
     image: silintl/traefik-https-proxy
     context: ./
     dockerfile: ./Dockerfile
-    
