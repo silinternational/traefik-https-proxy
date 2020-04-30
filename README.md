@@ -10,7 +10,7 @@ on environment variables to keep it as simple as possible to use.
 
 ## DNS Requirements
 Let's Encrypt can either verify your SSL certificate request by making an HTTP call to your server or verifying a DNS record. Since we're talking about local development the HTTP challenge will not work, but DNS can so long as your
-DNS is managed by a compatible provider. A list of compatible providers is available at https://docs.traefik.io/configuration/acme/#provider.
+DNS is managed by a compatible provider. A list of compatible providers is available at https://docs.traefik.io/https/acme/#providers.
 
 Create A records in your DNS  provider for the local development domains you want, something like dev1.domain.com or app1.domain.com and have them point to `127.0.0.1` so that when requested in your browser you'll just be directed to your own machine. When Traefik calls Let's Encrypt to provision certificates it will receive a challenge and create
 a TXT record on your DNS provider for Let's Encrypt to verify before it receives your certificate. 
@@ -35,7 +35,7 @@ Copy the `local.env.example` file to `local.env` and update it with appropriate 
 for environment configuration helps prevent commiting it to version control with credentials in it. 
 
 Required env vars:
-- `DNS_PROVIDER` - A valid value from https://docs.traefik.io/configuration/acme/#provider. Each provider will also required additional env vars for authentication. For example `cloudflare` requires `CLOUDFLARE_EMAIL` and `CLOUDFLARE_API_KEY`.
+- `DNS_PROVIDER` - A valid value from https://docs.traefik.io/https/acme/#providers. Each provider will also required additional env vars for authentication. For example `cloudflare` requires `CLOUDFLARE_EMAIL` and `CLOUDFLARE_API_KEY`.
 - `LETS_ENCRYPT_EMAIL` - An email address to use with Lets Encrypt, does not need to be previously "registered"
 - `LETS_ENCRYPT_CA` - Either `staging` or `production`. Traefik does not appear to respect the staging caServer at the moment though.
 - `TLD` - Used as the main domain on Lets Encrypt certificate, something like `domain.com`
