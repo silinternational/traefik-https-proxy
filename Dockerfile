@@ -6,5 +6,6 @@ RUN go build
 FROM traefik:alpine
 COPY --from=builder /go/src/entrypoint/entrypoint /
 COPY ./traefik.toml /etc/traefik/traefik.toml
+RUN mkdir /cert
 ENTRYPOINT [ "/entrypoint" ]
 CMD ["/usr/local/bin/traefik"]
