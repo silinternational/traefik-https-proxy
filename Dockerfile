@@ -1,4 +1,4 @@
-FROM golang:1-alpine3.7 as builder
+FROM golang:1-alpine3.14 as builder
 WORKDIR /go/src/entrypoint
 COPY ./entrypoint.go /go/src/entrypoint/
 RUN go build
