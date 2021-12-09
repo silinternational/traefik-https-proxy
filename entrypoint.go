@@ -210,6 +210,18 @@ func GetEnvVarModels() []EnvVar {
 			Desc:     "Domain for second frontend, ex: aotherpp.domain.com",
 			Default:  "",
 		},
+		{
+			Name:     "BACKEND3_URL",
+			Required: false,
+			Desc:     "Url to third backend, ex: http://third:80",
+			Default:  "",
+		},
+		{
+			Name:     "FRONTEND3_DOMAIN",
+			Required: false,
+			Desc:     "Domain for third frontend, ex: thirdapp.domain.com",
+			Default:  "",
+		},
 	}
 
 	return envVars
