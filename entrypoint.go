@@ -207,7 +207,7 @@ func GetEnvVarModels() []EnvVar {
 		{
 			Name:     "FRONTEND2_DOMAIN",
 			Required: false,
-			Desc:     "Domain for second frontend, ex: aotherpp.domain.com",
+			Desc:     "Domain for second frontend, ex: otherapp.domain.com",
 			Default:  "",
 		},
 		{
