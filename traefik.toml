@@ -63,6 +63,12 @@ sans = [SANS]
         [backends.backend2.servers.server0]
             url = "BACKEND2_URL"
             weight = 1
+    
+    [backends.backend3]
+        [backends.backend3.servers]
+        [backends.backend3.servers.server0]
+            url = "BACKEND3_URL"
+            weight = 1
 
 [frontends]
 
@@ -79,4 +85,11 @@ sans = [SANS]
     passHostHeader = true
     [frontends.frontend2.routes.default]
     rule = "Host: FRONTEND2_DOMAIN"
+
+  [frontends.frontend3]
+    entryPoints = ["http", "https"]
+    backend = "backend3"
+    passHostHeader = true
+    [frontends.frontend3.routes.default]
+    rule = "Host: FRONTEND3_DOMAIN"
 

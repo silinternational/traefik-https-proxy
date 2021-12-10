@@ -26,3 +26,10 @@ services:
      - "80"
     volumes:
       - ./index.php:/data/frontend/web/index.php
+
+  dev3:
+    image: silintl/php7
+    ports:
+     - "80"
+    volumes:
+      - ./index.php:/data/frontend/web/index.php

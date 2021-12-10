@@ -46,6 +46,8 @@ Required env vars:
 Optional env vars:
 - `BACKEND2_URL` - If you need to route a second domain to a different container, define backend url here, example: `http://app2:80`
 - `FRONTEND2_DOMAIN` - The domain name that should be routed to `BACKEND2_URL`, example: `app2.domain.com`
+- `BACKEND3_URL` - If you need to route a third domain to a different container, define backend url here, example: `http://app3:80`
+- `FRONTEND3_DOMAIN` - The domain name that should be routed to `BACKEND3_URL`, example: `app3.domain.com`
 
 ## Overriding `traefik.toml`
 You'll notice in the `docker-compose.yml` example above a commented out volume for `traefik.toml`. If you 
@@ -56,7 +58,7 @@ modify your own provided config.
 ## License - MIT
 MIT License
 
-Copyright (c) 2018 SIL International
+Copyright (c) 2021 SIL International
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
