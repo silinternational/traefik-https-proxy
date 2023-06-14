@@ -1,5 +1,5 @@
 # Simple HTTPS proxy for local dev
-Docker image for running Traefik as an HTTPS proxy to one or two other containers by just providing a few environment variables for configuration
+Docker image for running Traefik as an HTTPS proxy for up to three other containers by just providing a few environment variables for configuration
 
 ## What & Why
 Sometimes you need HTTPS for local development, for example when implementing FIDO U2F 2-Step Verification / 
