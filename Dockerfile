@@ -3,7 +3,7 @@ WORKDIR /go/src/entrypoint
 COPY ./entrypoint.go /go/src/entrypoint/
 RUN go build
 
-FROM traefik:alpine
+FROM traefik:v1.7-alpine
 COPY --from=builder /go/src/entrypoint/entrypoint /
 COPY ./traefik.toml /etc/traefik/traefik.toml
 RUN mkdir /cert
