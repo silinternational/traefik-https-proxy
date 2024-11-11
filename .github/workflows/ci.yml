@@ -25,12 +25,21 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+    
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+            registry: ghcr.io
+            username: ${{ github.actor }}
+            password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Extract metadata (tags, labels) for Docker
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{ vars.DOCKER_ORG }}/traefik-https-proxy
+          images: |
+            ${{ vars.DOCKER_ORG }}/traefik-https-proxy
+            ghcr.io/${{ github.repository_owner }}/traefik-https-proxy
           tags: |
             # set latest tag for main
             type=raw,value=latest,enable=${{ github.ref_name == 'main' }}
@@ -45,3 +54,4 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+          
