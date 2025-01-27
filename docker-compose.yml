@@ -11,22 +11,22 @@ services:
       - ./local.env
 
   dev1:
-    image: silintl/php8:8.1
+    image: silintl/php8:8.3
     ports:
-     - "80"
+      - "80"
     volumes:
       - ./index.php:/data/frontend/web/index.php
 
   dev2:
-    image: silintl/php8:8.1
+    image: silintl/php8:8.3
     ports:
-     - "80"
+      - "80"
     volumes:
       - ./index.php:/data/frontend/web/index.php
 
   dev3:
-    image: silintl/php8:8.1
+    image: silintl/php8:8.3
     ports:
-     - "80"
+      - "80"
     volumes:
       - ./index.php:/data/frontend/web/index.php
