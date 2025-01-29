@@ -32,7 +32,7 @@ In your `docker-compose.yml`, include a service like:
 ```
 
 Copy the `local.env.example` file to `local.env` and update it with appropriate values. Using a separate file
-for environment configuration helps prevent commiting it to version control with credentials in it. 
+for environment configuration helps prevent committing it to version control with credentials in it. 
 
 Required env vars:
 - `DNS_PROVIDER` - A valid value from https://docs.traefik.io/https/acme/#providers. Each provider will also required additional env vars for authentication. For example `cloudflare` requires `CLOUDFLARE_EMAIL` and `CLOUDFLARE_API_KEY`.
@@ -52,7 +52,7 @@ Optional env vars:
 ## Overriding `traefik.toml`
 You'll notice in the `docker-compose.yml` example above a commented out volume for `traefik.toml`. If you 
 don't want to use the simplified template that comes with this container and want to customize it, just provide 
-your own config file and volume it in. The entrypoing script looks for specific placeholders and should not 
+your own config file and volume it in. The entrypoint script looks for specific placeholders and should not 
 modify your own provided config. 
 
 ## License - MIT
